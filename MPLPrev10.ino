@@ -61,10 +61,11 @@ void setup() {
       pinMode(saida,OUTPUT);
 
       //definindo configurações do Timer/Counter2 com fast PWM
-      TCCR2A = B00100011;             // bits 7 e 6: COM2A1 e COM2A0, respectivamente: 00 -> OC2A disconectado
-                                      // bits 5 e 4: COM2B1 e COM2B0, respectivamente: 10 -> Limpa OC2B quando há igualdade na comparação com OCR2 (modo não-inversor)
-                                      // bits 3 e 2: bits reservados do microcontrolador (sempre manter em 00!)
-                                      // bits 1 e 0: WGM21 e WGM20, respectivamente: 11 -> modo 3 - Fast PWM [0~255]
+      TCCR2A = B00100011;       // bits 7 e 6: COM2A1 e COM2A0, respectivamente: 00 -> OC2A disconectado
+                                // bits 5 e 4: COM2B1 e COM2B0, respectivamente: 10 -> Limpa OC2B quando há igualdade 
+                                //                                                     na comparação com OCR2 (modo não-inversor)
+                                // bits 3 e 2: bits reservados do microcontrolador (sempre manter em 00!)
+                                // bits 1 e 0: WGM21 e WGM20, respectivamente: 11 -> modo 3 - Fast PWM [0~255]
       TCCR2B = B00000001; 
       
 
@@ -209,10 +210,10 @@ void loop() {
                   case 1:         // caso freq_selecionada = 1, freq = 1 Hz 
                       freq = 1;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000001;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 001 -> clkT2S/1 (sem prescaler)
+                      TCCR2B = B00000001;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 001 -> clkT2S/1 (sem prescaler)
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -221,10 +222,10 @@ void loop() {
                   case 2:         // caso freq_selecionada = 2, freq = 60 Hz
                       freq = 60;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000010;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 010 -> prescaler = clkT2S/8
+                      TCCR2B = B00000010;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 010 -> prescaler = clkT2S/8
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -233,10 +234,10 @@ void loop() {
                   case 3:         // caso freq_selecionada = 3, freq = 100 Hz
                       freq = 100;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000011;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 011 -> prescaler = clkT2S/32
+                      TCCR2B = B00000011;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 011 -> prescaler = clkT2S/32
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -245,10 +246,10 @@ void loop() {
                   case 4:         // caso freq_selecionada = 4, freq = 1 kHz
                       freq = 1000;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000100;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 100 -> prescaler = clkT2S/64
+                      TCCR2B = B00000100;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 100 -> prescaler = clkT2S/64
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -257,10 +258,10 @@ void loop() {
                   case 5:         // caso freq_selecionada = 5, freq = 10 kHz
                       freq = 10;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000101;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 101 -> prescaler = clkT2S/128
+                      TCCR2B = B00000101;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 101 -> prescaler = clkT2S/128
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -269,10 +270,10 @@ void loop() {
                   case 6:         // caso freq_selecionada = 6, freq = 100 kHz
                       freq = 100;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000110;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 110 -> prescaler = clkT2S/8
+                      TCCR2B = B00000110;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 110 -> prescaler = clkT2S/8
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -281,10 +282,10 @@ void loop() {
                   case 7:         // caso freq_selecionada = 6, freq = x MHz
                       freq = 100;
                       //definindo configurações do clock do Timer/Counter2
-                      TCCR2B = B00000111;             // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
-                                                      // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
-                                                      // bit 3 : WGM22: 0 - modo 3 Fast PWM
-                                                      // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 111 -> prescaler = clkT2S/1024
+                      TCCR2B = B00000111;   // bits 7 e 6: FOC2A e FOC2B, respectivamente: 00 -> sempre em 00 para modo PWM ou Fast PWM
+                                            // bits 5 e 4: bits reservados do microcontrolador (sempre manter em 00!)
+                                            // bit 3 : WGM22: 0 - modo 3 Fast PWM
+                                            // bits 2, 1 e 0: CS22, CS21 e CS20, respectivamente: 111 -> prescaler = clkT2S/1024
 
                       //definindo configurações do duty cuycle do Timer/Counter2
                       OCR2B = duty_cycle;
@@ -297,33 +298,33 @@ void loop() {
 //algoritmo para arredondamento de valor float
 int arredondar( float valor ) {
 
-    int resultado, sobra;                                                     // variáveis usadas pela função
+    int resultado, sobra;                                       // variáveis usadas pela função
     
-    resultado = valor * 100;                                                  // 1 - multiplicar valor da força medida por 100, guardar em 'resultado'
+    resultado = valor * 100;                                    // 1 - multiplicar valor da força medida por 100, guardar em 'resultado'
     Serial.print("resultado = ");
     Serial.println(resultado);
     
-    sobra = resultado % 100;                                                  // 2 - dividir o valor da força medida por 100, guarda o resto da divisão em 'sobra'
+    sobra = resultado % 100;                        // 2 - dividir o valor da força medida por 100, guarda o resto da divisão em 'sobra'
     Serial.print("sobra = ");
     Serial.println(sobra);
 
       Serial.print("sobra e resultado final = ");
-      if (sobra <= 59) {                                                      // 3.1 - se o valor da sobra for menor ou igual a 59 (ou seja, quando o valor fracionario for 0,59 ou menos)
-          sobra = 0;                                                          // 3.1.1 - zera o resto, e não altera o resultado
+      if (sobra <= 59) {    // 3.1 - se o valor da sobra for menor ou igual a 59 (ou seja, quando o valor fracionario for 0,59 ou menos)
+          sobra = 0;        // 3.1.1 - zera o resto, e não altera o resultado
           Serial.println(sobra);
           
       }
-      else {                                                                  // 3.2 - se o valor da sobra for maior que 59 (ou seja, quando o valor fracionario for 0,60 ou mais) 
-          resultado = resultado + 100;                                        // 3.2.1 - soma 100 ao resultado (ou seja, 1 no valor final)
-          sobra = 0;                                                          // 3.2.2 - zera o resto
+      else {                        // 3.2 - se o valor da sobra for maior que 59 (ou seja, quando o valor fracionario for 0,60 ou mais) 
+          resultado = resultado + 100;                                      // 3.2.1 - soma 100 ao resultado (ou seja, 1 no valor final)
+          sobra = 0;                                                        // 3.2.2 - zera o resto
           Serial.println(sobra);
           Serial.print("resultado calculado = ");
           Serial.println(resultado);
       }
 
-      resultado /= 100;                                                       // 4 - para voltar ao valor "normal", dividir o resultado por 100, e guardar nele mesmo
+      resultado /= 100;                         // 4 - para voltar ao valor "normal", dividir o resultado por 100, e guardar nele mesmo
       Serial.print("resultado final = ");
       Serial.println(resultado);
       
-      return resultado;                                                       // 5 - retornar ao código com o valor arredondado
+      return resultado;                         // 5 - retornar ao código com o valor arredondado
 }// end int arredondar( float valor )
