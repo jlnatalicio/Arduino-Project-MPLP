@@ -181,12 +181,10 @@ int lerBotoes() {
     if (digitalRead(up) && upFlag) {
         upFlag = 0;
         button = 1;
-    }
-    else if (digitalRead(down) && downFlag) {
+    } else if (digitalRead(down) && downFlag) {
              downFlag = 0;
              button = 2;
-    }
-    else if (digitalRead(select) && selFlag) {
+    } else if (digitalRead(select) && selFlag) {
              selFlag = 0;
              button = 3;
     } else return 0;
