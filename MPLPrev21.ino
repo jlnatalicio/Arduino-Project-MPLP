@@ -202,12 +202,9 @@ void selDuty(float dutyCycle) {
 
       val = (dutyCycle * 256) - 1;
       cicloTrabalho = arredondar(val);
-      Serial.print("cicloTrabalho = ");
-      Serial.println(cicloTrabalho);
 
       OCR2B = cicloTrabalho;
-      Serial.print("OCR2B = ");
-      Serial.println(OCR2B);
+    
 } // end void selDuty(float dutyCycle)
 
 void selFreq(char opcao) {
@@ -246,38 +243,26 @@ void selFreq(char opcao) {
                   TCCR2B |= (1<<CS20);
             break;
       }
-      Serial.print("TCCR2B = ");
-      Serial.println(TCCR2B);
+
 } // end void selFreq(char opcao)  
 
 int arredondar( float valor ) {                       // algoritmo para arredondamento de valor float
 
-    int resultado, sobra;                          // variáveis usadas pela função
+    int resultado, sobra;                             // variáveis usadas pela função
     
     resultado = valor * 100;                          // 1 - multiplicar valor por 100, guardar em 'resultado'
-    Serial.print("resultado = ");
-    Serial.println(resultado);
-    
     sobra = resultado % 100;                          // 2 - dividir o valor por 100, guarda o resto da divisão em 'sobra'
-    Serial.print("sobra = ");
-    Serial.println(sobra);
 
       Serial.print("sobra e resultado final = ");
       if (sobra <= 59) {                              // 3.1 - se o valor da sobra for menor ou igual a 59 (ou seja, quando o valor fracionario for 0,59 ou menos)
           sobra = 0;                                  // 3.1.1 - zera o resto, e não altera o resultado
-          Serial.println(sobra);
           
       } else {                                        // 3.2 - se o valor da sobra for maior que 59 (ou seja, quando o valor fracionario for 0,60 ou mais) 
           resultado = resultado + 100;                // 3.2.1 - soma 100 ao resultado (ou seja, 1 no valor final)
           sobra = 0;                                  // 3.2.2 - zera o resto
-          Serial.println(sobra);
-          Serial.print("resultado calculado = ");
-          Serial.println(resultado);
       }
 
       resultado /= 100;                               // 4 - para voltar ao valor "normal", dividir o resultado por 100, e guardar nele mesmo
-      Serial.print("resultado final = ");
-      Serial.println(resultado);
-      
       return resultado;                               // 5 - retornar ao código com o valor arredondado
+    
 }// end int arredondar( float valor )
