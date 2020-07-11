@@ -61,17 +61,6 @@ char   botao,
        toggle = 0;
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-/*ISR(TIMER2_COMPA_vect) {
-  
-      if (toggle) {
-            digitalWrite(saida, HIGH);
-            toggle = 0;            
-      } else {
-            digitalWrite(saida, LOW);
-            toggle = 1;    
-      }
-}*/
-
 void setup() {
   // put your setup code here, to run once:
 
