@@ -1,5 +1,5 @@
 # Arduino-Project-MPLP
-repositório para projeto MPLP
+repositório para projeto MPLP (Modulador Programável de Largura de Pulso)
 
 O projeto consiste em um módulo gerador de sinal PWM, onde a frequência e largura do pulso (duty cycle) do sinal são configuráveis. Desenvolvido com Arduino IDE e placa Arduino UNO.
 
